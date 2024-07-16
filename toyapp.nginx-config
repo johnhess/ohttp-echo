@@ -1,6 +1,20 @@
 server {
     listen 80;
-    server_name ohttp-gateway.jthess.com localhost;
+    server_name ohttp-gateway.jthess.com;
+
+    location / {
+        return 301 https://$host$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name ohttp-gateway.jthess.com;
+
+    ssl_certificate /etc/letsencrypt/live/ohttp-gateway.jthess.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ohttp-gateway.jthess.com/privkey.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
 
     location / {
         include proxy_params;
