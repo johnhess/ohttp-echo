@@ -6,7 +6,7 @@ After=network.target
 User=www-data
 Group=www-data
 WorkingDirectory=/home/admin/ohttp-echo
-ExecStart=/usr/local/bin/gunicorn --workers 3 --bind unix:/home/admin/ohttp-echo/flask_app.sock wsgi:app
+ExecStart=/home/admin/venv/bin/gunicorn --workers 3 --bind unix:/home/admin/ohttp-echo/flask_app.sock wsgi:app
 
 [Install]
 WantedBy=multi-user.target
