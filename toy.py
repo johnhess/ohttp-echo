@@ -11,7 +11,7 @@ def echo():
 def info():
     return """
     This is a toy app that echos POST requests to /.<br/><br/>  
-    Use /gateway as the OHTTP gateway endpoint."""
+    Use /gog/gateway as the OHTTP gateway endpoint."""
 
 if __name__ == '__main__':
     app.run(debug=True)
